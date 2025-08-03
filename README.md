@@ -25,19 +25,14 @@ Forget about:
 - `git cherry-pick abc123` - Confusing commit picking
 - `git push --force-with-lease` - Scary force pushing
 
+## 🔒 Safety & Privacy
+
+### 🛡️ **How It Works**
+- **Simple wrapper** - Vibe Check only executes `git` commands in your terminal
+- **No network access** - Just runs `git add`, `git commit`, `git checkout`, `git push`, etc.
+- **Transparent operations** - Everything it does, you could do manually with Git commands
+
 **Vibe Check handles it all with simple menu navigation!**
-
-## 🏗️ Architecture
-
-Built with a clean, modular architecture:
-
-```
-internal/
-├── app/          # Main application logic & Bubble Tea integration
-├── git/          # Git operations (checkpoints, finalization, utilities)
-├── models/       # Data structures and types
-└── ui/           # Terminal UI components and styling
-```
 
 ## 🛠️ Installation
 
@@ -185,17 +180,11 @@ vibe-check
 ## 🎨 Screenshots
 
 Beautiful terminal interface with:
-- 🎯 Intuitive navigation with arrow keys
-- 🌈 Color-coded status messages  
-- 📋 Clear visual feedback for all operations
-- ⚡ Smooth animations and loading states
-
-## 🔒 Safety Features
-
-- **Automatic backups** before any destructive Git operations
-- **Error handling** with clear, actionable error messages
-- **Non-destructive navigation** - checkpoints preserved until explicitly removed
-- **Force-with-lease** for safe remote pushes
+<img width="369" height="248" alt="image" src="https://github.com/user-attachments/assets/b043d6c7-15f8-43e9-990e-ff3ad2624ab0" />
+<img width="375" height="194" alt="image" src="https://github.com/user-attachments/assets/d5db9976-91ee-466a-b60c-321e7a964545" />
+<img width="625" height="180" alt="image" src="https://github.com/user-attachments/assets/a25c2bba-1b5c-4926-974b-8b5dd3dff1db" />
+<img width="513" height="179" alt="image" src="https://github.com/user-attachments/assets/6715a90a-1517-4aba-a31a-156a482bdd84" />
+<img width="376" height="195" alt="image" src="https://github.com/user-attachments/assets/8b0d31bb-ba14-4918-a777-48129f145728" />
 
 ## 🛡️ Requirements
 
@@ -298,7 +287,3 @@ MIT License - feel free to use, modify, and distribute!
 ## 👨‍💻 Author
 
 Created by **Adrian Górak** - [bomoge.pl](https://bomoge.pl)
-
----
-
-*Built with ❤️ using [Bubble Tea](https://github.com/charmbracelet/bubbletea) and [Lipgloss](https://github.com/charmbracelet/lipgloss)*
