@@ -82,26 +82,8 @@ func GetCheckpointsFromHistory() ([]models.Checkpoint, error) {
 
 // GetCheckpointsFromReflog returns checkpoints from reflog (includes navigation history)
 func GetCheckpointsFromReflog() ([]models.Checkpoint, error) {
-	// First, get all checkpoint hashes from reflog (to ensure we don't miss any)
-	reflogOutput, err := RunCommand("reflog", "--grep=CHECKPOINT", "--format=%h")
-	if err != nil {
-		return nil, err
-	}
-
-	// Collect all unique checkpoint hashes
-	checkpointHashes := make(map[string]bool)
-	if strings.TrimSpace(reflogOutput) != "" {
-		lines := strings.Split(reflogOutput, "\n")
-		for _, line := range lines {
-			hash := strings.TrimSpace(line)
-			if hash != "" {
-				checkpointHashes[hash] = true
-			}
-		}
-	}
-
-	// Now get all commits in chronological order and filter for our checkpoints
-	logOutput, err := RunCommand("log", "--oneline", "--all", "--format=%h %s")
+	// Get all reflog entries to find all commits (including unreachable ones)
+	reflogOutput, err := RunCommand("reflog", "--format=%h %s")
 	if err != nil {
 		return nil, err
 	}
@@ -109,8 +91,8 @@ func GetCheckpointsFromReflog() ([]models.Checkpoint, error) {
 	var checkpoints []models.Checkpoint
 	seen := make(map[string]bool)
 
-	if strings.TrimSpace(logOutput) != "" {
-		lines := strings.Split(logOutput, "\n")
+	if strings.TrimSpace(reflogOutput) != "" {
+		lines := strings.Split(reflogOutput, "\n")
 		for _, line := range lines {
 			line = strings.TrimSpace(line)
 			if line == "" {
@@ -125,8 +107,8 @@ func GetCheckpointsFromReflog() ([]models.Checkpoint, error) {
 			hash := parts[0]
 			message := parts[1]
 
-			// Only include if it's a checkpoint we found in reflog and contains CHECKPOINT:
-			if checkpointHashes[hash] && strings.Contains(message, "CHECKPOINT:") && !seen[hash] {
+			// Only include checkpoints and avoid duplicates
+			if strings.Contains(message, "CHECKPOINT:") && !seen[hash] {
 				seen[hash] = true
 				checkpoints = append(checkpoints, models.Checkpoint{
 					Hash:    hash,
@@ -134,6 +116,11 @@ func GetCheckpointsFromReflog() ([]models.Checkpoint, error) {
 				})
 			}
 		}
+	}
+
+	// Reverse to show newest first (reflog is oldest to newest)
+	for i, j := 0, len(checkpoints)-1; i < j; i, j = i+1, j-1 {
+		checkpoints[i], checkpoints[j] = checkpoints[j], checkpoints[i]
 	}
 
 	// Add the last non-checkpoint commit at the end if it exists

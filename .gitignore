@@ -1,6 +1,7 @@
 # Binaries
 vibe-check-v2
 vibe-check
+bin/
 *.exe
 *.exe~
 *.dll
@@ -45,3 +46,4 @@ Thumbs.db
 # Internal development files
 CLAUDE.md
 ARCHITECTURE.md
+reddit-post.md
