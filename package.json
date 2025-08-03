@@ -1,0 +1,52 @@
+{
+  "name": "@bomoge/vibe-check",
+  "version": "1.0.0",
+  "description": "Simple Git workflow made easy - no more complex commands!",
+  "main": "bin/vibe-check",
+  "bin": {
+    "vibe-check": "./bin/vibe-check"
+  },
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "go build -o bin/vibe-check .",
+    "test": "go test ./..."
+  },
+  "keywords": [
+    "git",
+    "checkpoint",
+    "workflow",
+    "cli",
+    "version-control",
+    "ai-assisted",
+    "development",
+    "simple",
+    "wrapper"
+  ],
+  "author": {
+    "name": "Adrian Górak",
+    "email": "adriangorak98@gmail.com",
+    "url": "https://bomoge.pl"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pr0d5h381/vibe-check.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pr0d5h381/vibe-check/issues"
+  },
+  "homepage": "https://github.com/pr0d5h381/vibe-check#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "files": [
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ]
+}

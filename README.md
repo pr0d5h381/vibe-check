@@ -179,8 +179,6 @@ vibe-check
 
 ## 🎨 Screenshots
 
-Beautiful terminal interface with:
-
 <img width="369" height="248" alt="image" src="https://github.com/user-attachments/assets/b043d6c7-15f8-43e9-990e-ff3ad2624ab0" />
 
 <img width="375" height="194" alt="image" src="https://github.com/user-attachments/assets/d5db9976-91ee-466a-b60c-321e7a964545" />
