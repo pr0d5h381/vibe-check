@@ -180,10 +180,15 @@ vibe-check
 ## 🎨 Screenshots
 
 Beautiful terminal interface with:
+
 <img width="369" height="248" alt="image" src="https://github.com/user-attachments/assets/b043d6c7-15f8-43e9-990e-ff3ad2624ab0" />
+
 <img width="375" height="194" alt="image" src="https://github.com/user-attachments/assets/d5db9976-91ee-466a-b60c-321e7a964545" />
+
 <img width="625" height="180" alt="image" src="https://github.com/user-attachments/assets/a25c2bba-1b5c-4926-974b-8b5dd3dff1db" />
+
 <img width="513" height="179" alt="image" src="https://github.com/user-attachments/assets/6715a90a-1517-4aba-a31a-156a482bdd84" />
+
 <img width="376" height="195" alt="image" src="https://github.com/user-attachments/assets/8b0d31bb-ba14-4918-a777-48129f145728" />
 
 ## 🛡️ Requirements
